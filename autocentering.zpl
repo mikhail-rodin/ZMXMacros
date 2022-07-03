@@ -1,6 +1,6 @@
 PRINT "+---------------------------------------------+"
 PRINT "|              AutoCentering                  |"
-PRINT "| https://github.com/mikhail-rodin/OpticGOST  |"
+PRINT "| https://github.com/mikhail-rodin/ZMXMacros  |"
 PRINT "+---------------------------------------------+"
 PRINT
 
@@ -53,7 +53,7 @@ FOR srf, 1, sfr_count, 1
                 out$ = out$ + " " + $STR(phi_deg) +  end$
             ELSE
                 c = 0.1/(phi_deg - 7)
-                c = INTE(1000*c)/1000
+                c = (INTE(1000*c)+1)/1000 
                 FORMAT "%#2.2f" LIT
                 out$ = out$ + "     " + $STR(phi_deg) + " deg   |          "   
                 FORMAT "%#4.1f" LIT
@@ -74,7 +74,7 @@ FOR srf, 1, sfr_count, 1
         ENDIF
         wedge_deg = 180*wedge_rad/3.1415926
         INSERTTOL 1
-        SETTOL 1, 0, "TETY"
+        SETTOL 1, 0, "TETX"
         SETTOL 1, 1, tol_srf
         SETTOL 1, 2, tol_srf
         SETTOL 1, 4, -wedge_deg
